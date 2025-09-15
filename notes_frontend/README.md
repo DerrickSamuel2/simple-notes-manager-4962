@@ -1,82 +1,44 @@
-# Lightweight React Template for KAVIA
+# Simple Notes Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A clean, lightweight React app to manage notes with Create, Read, Update, Delete features. Data is currently mocked and stored in `localStorage` to simulate API calls. The code is organized for a future backend integration.
 
 ## Features
+- List notes with last-updated timestamp
+- Create a new note
+- Edit existing note (title and content)
+- Delete a note
+- Light/Dark theme toggle
+- Responsive two-column layout
+- Encapsulated data layer ready for backend swap
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Tech
+- React 18, react-scripts
+- Pure CSS (no UI frameworks)
+- Context API for centralized state
 
-## Getting Started
+## Structure
+- `src/context/NotesContext.js`: central state + mocked API with localStorage
+- `src/components/`: UI components (Header, Layout, NotesList, NotesListItem, NoteEditor)
+- `src/App.js`: composition and theme handling
+- `src/App.css`: styles and theming
 
-In the project directory, you can run:
+## Development
+- Install dependencies: `npm install`
+- Start dev server: `npm start`
+- Run tests: `npm test`
+- Build: `npm run build`
 
-### `npm start`
+## Backend Integration
+Replace the functions in `NotesContext.js`:
+- `apiListNotes()`
+- `apiCreateNote(note)`
+- `apiUpdateNote(note)`
+- `apiDeleteNote(id)`
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+These are the only places that need to change to connect to a real backend. Keep the function signatures and return shapes consistent for minimal changes to the rest of the app.
 
-### `npm test`
+## Accessibility
+- Buttons include aria-labels where relevant
+- Semantic roles for list and list items
 
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy taking notes!
